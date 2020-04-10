@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="img/site.webmanifest">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corona Status Brasil</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <img class="logo" src="img/corona_icon.png" alt="logo corona"> <span class="nav-text">Corona Status Brasil</span>
+    </nav>
+
+    <div id="page-container">
+
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <span class="icon">&#128165;<p>casos hoje</p></span>
+                    <span id="todayConfirmed" class="content_card">...</span>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <span class="icon">&#129298;<p>casos ativos</p></span>
+                    <span id="activeCases" class="content_card">...</span>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <span class="icon">&#128561;<p>mortes</p></span>
+                    <span id="deathCases" class="content_card">...</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <span class="icon">&#128567;<p>confirmados</p></span>
+                    <span id="confirmedCases" class="content_card">...</span>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <span class="icon">&#127775;<p>recuperados</p></span>
+                    <span id="recoveredCases" class="content_card">...</span>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <span class="icon">&#128481;<p>% fatalidade</p></span>
+                    <span id="fatalityRate" class="content_card">...</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="embed-responsive">
+            <iframe frameborder='0' scrolling='no' src='https://plot.ly/~ericcoutinho/2.embed?autosize=true&link=false&modebar=false&width=100%' class="embed-responsive-item" style="border:none;" ></iframe> 
+        </div>
+
+        <footer id="footer">feito com &#129505; por <a href="https://www.linkedin.com/in/eric-coutinho/">Eric Coutinho</a></footer>
+    </div>
+
+    <script type="text/javascript" src="cases.js"></script>
+    <script>
+        document.getElementById("todayConfirmed").innerHTML = data[0].todayConfirmed;
+        document.getElementById("activeCases").innerHTML = data[0].activeCases;
+        document.getElementById("deathCases").innerHTML = data[0].deathCases;
+        document.getElementById("confirmedCases").innerHTML = data[0].confirmedCases;
+        document.getElementById("recoveredCases").innerHTML = data[0].recoveredCases;
+        document.getElementById("fatalityRate").innerHTML = data[0].fatalityRate;
+    </script>
+
+    
+</body>
+
+</html>

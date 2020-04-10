@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+  }
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Patua One', cursive;
+}
+
+div.embed-responsive {
+    min-width: 100vw;
+    min-height: 80vh;
+}
+  
+  /* Float four columns side by side */
+  .column {
+    float: left;
+    width: 33%;
+    padding: 0 10px;
+  }
+
+  .content_card {
+    position: relative;
+    font-size: 2.5rem;
+    bottom: 20px;
+  }
+
+  #todayConfirmed, #deathCases {
+      color: #f12738;
+  }
+
+  #recoveredCases {
+      color: #0081a6;
+  }
+  
+  /* Remove extra left and right margins, due to padding in columns */
+  .row {margin: 40px 50px;}
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  img.logo {
+      height: 40px;
+  }
+
+  .nav-text {
+    margin-left: 10px;
+    font-size: 1.5rem;
+    color: #318a43;
+  }
+
+  .navbar {
+    justify-content: start !important;
+    margin-bottom: 40px;
+  }
+  
+  /* Style the counter cards */
+  .card {
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    height: 200px;
+  }
+
+  .card p {
+      font-size: x-large;
+  }
+  
+  .card span.icon {
+      position: relative;
+      top: -50px;
+      font-size:50px;
+  }
+
+  #page-container {
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  #content-wrap {
+    padding-bottom: 2.5rem;    /* Footer height */
+  }
+  
+  #footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;            /* Footer height */
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 10px;
+  }
+
+  /* Responsive columns - one column layout (vertical) on small screens */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 35px;
+    }
+    .row {margin: 0px 10px;}
+  }
+
+  @media screen and (max-width: 440px) {
+
+    div.embed-responsive {
+        display: none;
+    }
+
+}
