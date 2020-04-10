@@ -19,7 +19,7 @@ Build with HTML, CSS, JS, NodeJS and [Plotly Chart Studio](https://plot.ly/chart
 get JSON file hosted in https://pomber.github.io/covid19/timeseries.json, extract, transform, send the data to Plotly API and generate cases.js file.
 
 #### cases.js >
-some info to support the [online website](https://ericcoutinho.github.io/corona-status-brasil/) data
+some info to support the [online website](https://ericcoutinho.github.io/corona-status-brasil/) data.
 
 #### index.html >
 some magic with html and css to ensure a cool look.
