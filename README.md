@@ -1,4 +1,4 @@
-### [open website here](https://ericcoutinho.github.io/corona-status-brasil/)
+### [site online aqui](https://ericcoutinho.github.io/corona-status-brasil/)
 ## Corona Status Brasil
 
 feito com HTML, CSS, JS, NodeJS e [Plotly Chart Studio](https://plot.ly/chart-studio/).
