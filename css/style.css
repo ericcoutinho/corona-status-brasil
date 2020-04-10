@@ -33,6 +33,10 @@ div.embed-responsive {
   #recoveredCases {
       color: #0081a6;
   }
+
+  .last {
+    margin-bottom: 30px;
+  }
   
   /* Remove extra left and right margins, due to padding in columns */
   .row {margin: 40px 50px;}
