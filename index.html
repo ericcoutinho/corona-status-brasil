@@ -60,7 +60,7 @@
             </div>
             <div class="column">
                 <div class="card last">
-                    <span class="icon">&#128481;<p>% fatalidade</p></span>
+                    <span class="icon">&#128481;<p>fatalidade</p></span>
                     <span id="fatalityRate" class="content_card">...</span>
                 </div>
             </div>
@@ -80,7 +80,7 @@
         document.getElementById("deathCases").innerHTML = data[0].deathCases;
         document.getElementById("confirmedCases").innerHTML = data[0].confirmedCases;
         document.getElementById("recoveredCases").innerHTML = data[0].recoveredCases;
-        document.getElementById("fatalityRate").innerHTML = data[0].fatalityRate;
+        document.getElementById("fatalityRate").innerHTML = (data[0].fatalityRate.replace('.',','))+'%';
     </script>
 
     
