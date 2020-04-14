@@ -1,1 +1,1 @@
-var data = [{"todayConfirmed":1465,"activeCases":20796,"deathCases":1223,"confirmedCases":22192,"recoveredCases":173,"fatalityRate":"5.51"}]
+var data = [{"todayConfirmed":1238,"activeCases":21929,"deathCases":1328,"confirmedCases":23430,"recoveredCases":173,"fatalityRate":"5.67"}]
