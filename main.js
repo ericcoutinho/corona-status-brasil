@@ -13,7 +13,7 @@ request(url, options, (error, res, body) => {
   };
 
   if (!error && res.statusCode === 200) {
-    var dailyCounts = [] // iniciando array final da contagem dos casos
+    var dailyCounts = []
     body.Brazil.forEach(({ date, confirmed, recovered, deaths }) =>
       transformData(dailyCounts, date, confirmed, recovered, deaths)
     )
@@ -24,16 +24,16 @@ request(url, options, (error, res, body) => {
 function transformData (dailyCounts, date, confirmed, recovered, deaths) {
   const active = confirmed - recovered - deaths
 
-  dailyCounts.push({ // armazena cada caso como um novo objeto no casoCount
-    confirmed: confirmed, // total de casos
-    recovered: recovered, // recuperados
-    deaths: deaths, // mortes
-    active: active, // casos ativos
-    date: date // data extraída
+  dailyCounts.push({
+    confirmed: confirmed,
+    recovered: recovered,
+    deaths: deaths,
+    active: active,
+    date: date
   })
 }
 
-function generateChart (dailyCounts) { // gera o gráfico
+function generateChart (dailyCounts) {
   var data = []
   var jsonData = []
   var arrDates = []
@@ -44,12 +44,12 @@ function generateChart (dailyCounts) { // gera o gráfico
   const todayConfirmed = (dailyCounts[dailyCounts.length - 1].confirmed) - (dailyCounts[dailyCounts.length - 2].confirmed)
   const fatalityRate = (dailyCounts[dailyCounts.length - 1].deaths / (dailyCounts[dailyCounts.length - 1].confirmed / 100)).toFixed(2)
 
-  for (var key in dailyCounts) { // percorre o array de casos
-    arrDates.push(dailyCounts[key].date) // montagem do array de data
-    arrDeaths.push(dailyCounts[key].deaths) // montagem do array de mortes
-    arrRecovered.push(dailyCounts[key].recovered) // montagem do array de casos recuperados
-    arrActive.push(dailyCounts[key].active) // montagem do array de casos ativos
-    arrConfirmed.push(dailyCounts[key].confirmed) // montagem do array de casos confirmados
+  for (var key in dailyCounts) {
+    arrDates.push(dailyCounts[key].date)
+    arrDeaths.push(dailyCounts[key].deaths)
+    arrRecovered.push(dailyCounts[key].recovered)
+    arrActive.push(dailyCounts[key].active)
+    arrConfirmed.push(dailyCounts[key].confirmed)
   }
 
   jsonData.push({
@@ -61,33 +61,32 @@ function generateChart (dailyCounts) { // gera o gráfico
     fatalityRate: fatalityRate
   })
 
-  // stringify JSON Object
   var jsonContent = JSON.stringify(jsonData)
 
   writeJson(jsonContent)
 
-  const deaths = { // implementa o array de num de mortes ( X: Datas, Y: Núm de Casos )
+  const deaths = {
     x: arrDates,
     y: arrDeaths,
     type: 'scatter',
     name: 'Mortes'
   }
 
-  const recovered = { // implementa o array de num de casos recuperados ( X: Datas, Y: Núm de Casos )
+  const recovered = {
     x: arrDates,
     y: arrRecovered,
     type: 'scatter',
     name: 'Recuperados'
   }
 
-  const active = { // implementa o array de num de casos ativos ( X: Datas, Y: Núm de Casos )
+  const active = {
     x: arrDates,
     y: arrActive,
     type: 'scatter',
     name: 'Ativos'
   }
 
-  const confirmed = { // implementa o array de num de casos confirmados ( X: Datas, Y: Núm de Casos )
+  const confirmed = {
     x: arrDates,
     y: arrConfirmed,
     type: 'scatter',
@@ -96,19 +95,18 @@ function generateChart (dailyCounts) { // gera o gráfico
 
   data.push(deaths, recovered, active, confirmed)
 
-  // função do plotly para gerar o gráfico
   var graphOptions = { filename: 'date-axes', fileopt: 'overwrite' }
   plotly.plot(data, graphOptions, function (_err, msg) {
-    console.log(msg)
+    console.log('\nurl: ' + msg.url)
   })
 }
 
 function writeJson (jsonContent) {
   fs.writeFile('cases.js', ('var data = ' + jsonContent), 'utf8', function (err) {
     if (err) {
-      console.log('deu ruim no cases.js')
+      console.log('\ndeu ruim no cases.js')
       return console.log(err)
     }
-    console.log('cases.js foi salvo')
+    console.log('\ncases.js foi salvo')
   })
 }
