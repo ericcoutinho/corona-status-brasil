@@ -1,3 +1,5 @@
+This project is licensed under the terms of the MIT license.
+
 ### [site online aqui](https://ericcoutinho.github.io/corona-status-brasil/)
 ## Corona Status Brasil
 
