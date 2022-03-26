@@ -136,7 +136,7 @@
     "math-log2": "^1.0.1",
     "matrix-camera-controller": "^2.1.3",
     "minimatch": "^3.0.4",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "mouse-change": "^1.4.0",
     "mouse-event": "^1.0.5",
     "mouse-event-offset": "^3.0.2",
